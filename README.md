@@ -4,10 +4,10 @@
 This repository contains project ideas for the DSAN 6725 course. Each project explores different applications of Generative AI and AI agentic workflows.
 
 ## Project Ideas
-- [Gen AI AI-Powered Code Refactoring & Dependency Updater](./Gen_AI_Code_Refactoring.md)
-- [Gen AI agent for data engineering](./Gen_AI_Data_Engineering.md)
-- [Question-Answering Slackbot for a DSAN Slack Channel](./Gen_AI_Slackbot.md)
-- [Fine-Tune an Embeddings Model and Show Retrieval Accuracy Improvements](./Gen_AI_Embedding_Model.md)
+- [Gen AI AI-Powered Code Refactoring & Dependency Updater](./AI_code_refactoring.md)
+- [Gen AI agent for data engineering](./Data_engineering_agent.md)
+- [Question-Answering Slackbot for a DSAN Slack Channel](./QA_Slackbot.md)
+- [Fine-Tune an Embeddings Model and Show Retrieval Accuracy Improvements](./Embedding_Model_FineTuning.md)
 - 
 ## Project Descriptions
 
