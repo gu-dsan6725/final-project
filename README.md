@@ -11,7 +11,7 @@ DSAN_6725_Project_Ideas/
 │   ├── AI_Code_Refactoring.md
 │   ├── Data_Engineering_Agent.md
 │   ├── QA_Slackbot.md
-│   ├── Embedding_Model_Tuning.md
+│   ├── Embedding_Model_FineTuning.md
 ```
 
 ## Project Descriptions
