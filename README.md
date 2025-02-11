@@ -1,12 +1,33 @@
-# DSAN 6725 Project Ideas
+# DSAN 6725 Project Ideas Repository
 
-Here are some project ideas for Gen AI projects. The focus of each of these ideas is to build out a complete applied science use-case, it is expected that each of these ideas would be worked upon by a team of 2-4 graduate students for 6 to 8 weeks.
+## Overview
+This repository contains project ideas for the DSAN 6725 course. Each project explores different applications of Generative AI and AI agentic workflows.
 
-The ideas focus on Agentic AI use-case but some also include exploration of core components such as an embedding model, specific optimization technique or building benchmarks.
+## Repository Structure
+```
+DSAN_6725_Project_Ideas/
+│── README.md
+│── projects/
+│   ├── AI_Code_Refactoring.md
+│   ├── Data_Engineering_Agent.md
+│   ├── QA_Slackbot.md
+│   ├── Embedding_Model_Tuning.md
+```
 
-## Project Ideas
+## Project Descriptions
 
-- [Gen AI AI-Powered Code Refactoring & Dependency Updater](./Gen_AI_Code_Refactoring.md)
-- [Gen AI agent for data engineering](./Gen_AI_Data_Engineering.md)
-- [Question-Answering Slackbot for a DSAN Slack Channel](./Gen_AI_Slackbot.md)
-- [Fine-Tune an Embeddings Model and Show Retrieval Accuracy Improvements](./Gen_AI_Embedding_Model.md)
+### 1. AI-Powered Code Refactoring & Dependency Updater
+- Develop a Gen AI-powered tool that refactors code and updates dependencies.
+- Automate legacy code modernization.
+
+### 2. Gen AI Agent for Data Engineering
+- Create an autonomous AI agent to assist in data preprocessing, cleaning, and transformation.
+- Optimize workflows for structured and unstructured data.
+
+### 3. Question-Answering Slackbot
+- Develop a chatbot for Slack that answers questions using fine-tuned LLMs.
+- Focus on real-time query handling and knowledge retrieval.
+
+### 4. Fine-Tune an Embeddings Model
+- Fine-tune an embeddings model to improve retrieval accuracy.
+- Demonstrate improvements using benchmark datasets.
