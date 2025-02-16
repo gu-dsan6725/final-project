@@ -98,7 +98,7 @@ Each project must include a report (see [`submissions requirements`](#submission
 After projects have been submitted, there will be an ungraded project presentation. This will typically require a PowerPoint presentation and a live demo. Each group will have **15 minutes** to present their work.
 
 ## Submission Requirements
-- **Format:** Markdown/PDF report + GitHub repository (this repository) with code. Use [`Quarto`](https://quarto.org/)  or [`MkDocs`](https://www.mkdocs.org/) to create your report and host it on GitHub pages for this repo. It is up to you if you want to host this is a single page website or in a different format, whatever best helps communicate the deliverables listed above. **This is a graduate class therefore attention to detail is a must, for example cross references in report to sections of code, tables, visualizations and screenshots to communicate key results, coherent and concise writing free of grammatical errors are baseline level requirements**.
+- **Format:** Markdown/PDF report + GitHub repository (this repository) with code. Use [`Quarto`](https://quarto.org/)  or [`MkDocs`](https://www.mkdocs.org/) to create your report and host it on GitHub pages for this repo. It is up to you if you want to host this is a single page website or in a different format, whatever best helps communicate the deliverables listed above. **This is a graduate class therefore attention to detail is a must, for example cross references in report to sections of code, tables, visualizations and screenshots to communicate key results, coherent and concise writing free of grammatical errors are all baseline level requirements**.
 - **Due Date:** Tuesday, April 29th, 2025
 - **Evaluation Criteria:**
   - Technical depth and correctness (40%)
