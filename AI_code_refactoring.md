@@ -25,6 +25,8 @@ To evaluate the **robustness and correctness** of the AI agent, we will create *
 * **Outdated dependencies** to test automatic upgrades.  
 * **Messy project structures** to test file organization improvements.
 
+**_Note that the following is simply an example of poor code to unit test your solution, once you have a solution you need to showcase it working on [AWS FMBench Orchestrator](https://github.com/awslabs/fmbench-orchestrator) repo. You can fork this repo, have your agent work on it and submit a PR once you have tested the new and improved code written by your agent_**.
+
 Example synthetic repo files:
 
 #### **1\. Python Code with Outdated Practices**
@@ -101,7 +103,7 @@ Multiple files with inconsistent coding styles, missing docstrings, and unused f
 
 ### **Why This Project Matters?**
 
-This project showcases how **GenAI can assist software maintenance by automating code reviews, dependency management, and refactoring**. It applies **multi-agent AI collaboration** in a practical software engineering scenario, making it an **excellent capstone project** for a **graduate-level Applied Generative AI course**. 🚀
+This project showcases how **GenAI can assist software maintenance by automating code reviews, dependency management, and refactoring**. It applies **multi-agent AI collaboration** in a practical software engineering scenario.
 
 **Code Repository for Real-World Testing:**  
 🔗 [AWS FMBench Orchestrator](https://github.com/awslabs/fmbench-orchestrator)

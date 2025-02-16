@@ -22,7 +22,7 @@ If you choose to generate **synthetic Slack data**, it should:
 
 This synthetic data will help test and fine-tune your bot's response quality in various scenarios.
 
-*📌 Extra Credit: Up to **10 additional points** for generating high-quality synthetic Slack data.*
+*📌 Extra Credit: **Additional points** for generating high-quality synthetic Slack data.*
 
 ---
 
@@ -75,22 +75,22 @@ Your bot should implement **multiple RAG techniques** to enhance retrieval and r
 
 ## **4\. Evaluation & Success Metrics**
 
-### **A. Core Functionality (40 points)**
+### **A. Core Functionality**
 
 * Slackbot **correctly retrieves and answers** user questions based on Slack data.  
 * Responses are **coherent, contextually relevant, and factually correct**.
 
-### **B. RAG Techniques (30 points)**
+### **B. RAG Techniques **
 
 * Uses **at least three advanced RAG techniques** from the list.  
 * Effectiveness of retrieval and response generation improves with these techniques.
 
-### **C. Slackbot Integration (20 points)**
+### **C. Slackbot Integration**
 
 * Bot is **fully functional in Slack** with real-time interaction.  
 * Supports **multi-turn conversations** and context tracking.
 
-### **D. Extra Credit (+10 points)**
+### **D. Extra Credit**
 
 * High-quality **synthetic Slack data** is generated in JSON format.  
 * Synthetic data improves **bot performance on edge cases**.
@@ -116,18 +116,6 @@ By completing this project, you’ll gain **practical experience in AI developme
 
 ---
 
-### **Deliverables**
-
-* ✅ **Code Repository**  
-* ✅ **Project Report (5-7 pages)**  
-  * Architecture overview  
-  * RAG techniques used and why  
-  * Challenges & optimizations  
-  * Synthetic data (if created)  
-* ✅ **Demo Video (Optional but recommended)**  
-  * A short (3-5 min) walkthrough of your solution.
-
----
 
 ### **Tools & Resources**
 

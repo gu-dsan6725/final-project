@@ -51,7 +51,7 @@ This dataset will be used to **evaluate retrieval accuracy before and after fine
 
 ### **A. Baseline Retrieval (Before Fine-Tuning)**
 
-* Use **a pre-trained embeddings model** (e.g., **OpenAI, BAAI-bge, or similar**) to compute vector embeddings.  
+* Use **a pre-trained embeddings model** (e.g., **Nomic, BAAI-bge, or similar**) to compute vector embeddings.  
 * Store embeddings in a **vector database** (FAISS, Weaviate, Pinecone, Chroma).  
 * Run **initial retrieval tests** using BM25 \+ embeddings-based search.  
 * Compute baseline retrieval metrics (**NRR, NDCG, MAP**).
@@ -87,22 +87,22 @@ This dataset will be used to **evaluate retrieval accuracy before and after fine
 
 ## **4\. Evaluation & Success Metrics**
 
-### **A. Embedding Model Performance (40 points)**
+### **A. Embedding Model Performance**
 
 * Fine-tuning **successfully improves retrieval performance** compared to the baseline.  
 * Results show improvements in **NRR, NDCG, and MAP scores**.
 
-### **B. Evaluation Dataset & Analysis (20 points)**
+### **B. Evaluation Dataset & Analysis **
 
 * A **well-structured dataset of domain-specific queries** is created.  
 * **Retrieval accuracy comparisons** before and after fine-tuning are presented.
 
-### **C. RAG Demo Application (30 points)**
+### **C. RAG Demo Application **
 
 * A **working RAG-based app** (Streamlit, Chainlit, etc.) is developed.  
 * Users can **query the system, see retrieved documents, and compare performance**.
 
-### **D. Extra Credit (+10 points)**
+### **D. Extra Credit **
 
 * Additional **analysis on retrieval patterns**, fine-tuning challenges, or alternative embedding models.
 
@@ -125,27 +125,13 @@ This project teaches **critical skills in retrieval and fine-tuning** that are e
 
 By completing this project, you will develop **deep expertise in retrieval models, embeddings fine-tuning, and evaluation methodologies**—skills that are highly valuable in **AI search, NLP, and enterprise AI applications**.
 
----
-
-### **Deliverables**
-
-* ✅ **Code Repository (GitHub or similar)**  
-* ✅ **Project Report (5-7 pages)**  
-  * Data collection & preprocessing  
-  * Fine-tuning methodology  
-  * Baseline vs. fine-tuned performance analysis  
-  * Challenges & optimizations  
-* ✅ **Demo Application**  
-  * Hosted or runnable **Streamlit/Chainlit app**  
-* ✅ **Performance Comparison Charts**  
-  * Graphs showing **NRR/NDCG/MAP improvements**
 
 ---
 
 ### **Tools & Resources**
 
 💡 **Vector Databases:** FAISS, Pinecone, Weaviate, ChromaDB  
-💡 **Embeddings Models:** OpenAI, BAAI-bge, LlamaIndex  
+💡 **Embeddings Models:** Nomic, BAAI-bge, LlamaIndex  
 💡 **Fine-Tuning Frameworks:** LlamaIndex, Hugging Face, SentenceTransformers  
 💡 **Evaluation Metrics:** NRR, NDCG, MAP
 

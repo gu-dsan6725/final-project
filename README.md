@@ -18,6 +18,8 @@ This repo is organized into the following parts:
 
 ## Project Ideas
 
+**NOTE**: These project ideas have well-defined problem statements, but the implementation details are flexible and open to creative solutions. Use the description provided for each of these projects as springboards for your own ways to solve these problems.
+
 - [Gen AI AI-Powered Code Refactoring & Dependency Updater](./AI_code_refactoring.md)
 - [Gen AI agent for data engineering](./Data_engineering_agent.md)
 - [Question-Answering Slackbot for a DSAN Slack Channel](./QA_slackbot.md)

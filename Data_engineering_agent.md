@@ -8,12 +8,12 @@ In real-world data engineering workflows, data is often stored in **multiple for
 
 The goal is to build an **autonomous data engineering agent** that:
 
-1. **Scans an S3 prefix** to identify files and their formats (e.g., JSON, CSV, Avro, XML, Parquet, etc.).  
+1. **Scans an S3 prefix (or a local folder for simplicity)** to identify files and their formats (e.g., JSON, CSV, Avro, XML, Parquet, etc.).  
 2. **Infers schemas** and groups files into distinct schema categories.  
 3. **Dynamically generates Python classes** that handle serialization and deserialization for each schema.  
 4. **Converts data into standardized formats** (e.g., Parquet for analytics, Avro for streaming).  
 5. **Performs data cleaning and transformation** before storage.  
-6. **Writes transformed data** to an S3 prefix, partitioned by schema type.
+6. **Writes transformed data** to an S3 prefix (or a local folder for simplicity), partitioned by schema type.
 
 This project integrates **LLM-based code generation, data engineering, and automation**, creating a pipeline that **writes and executes its own serialization/deserialization logic** based on the data it encounters.
 
@@ -86,9 +86,10 @@ Binary files containing structured data, which the agent will generate and proce
 ### **Technical Components & Implementation**
 
 1. **Generative AI for Code Generation**  
-   * Use an **LLM (e.g., Llama 3.3, Nova, Claude 3.5 Haiku) to generate Python code** for serialization/deserialization.  
+   * Use an **LLM (e.g., Llama 3.3, Nova, Claude 3.5 Haiku) to generate Python code** to write code for determining the schema of a file, write code for serialization/deserialization.  
    * Prompt engineering: "Write a Python class that reads XML and converts it to Parquet."  
    * Self-correction & validation using LLM-based evaluation.  
+   * Have the LLM write all code as per PEP8, use PyDantic, and the usual good programming practices.
 2. **Schema Inference & Transformation**  
    * Extract schema from JSON, CSV, XML, and other formats.  
    * Identify **duplicate fields, nested structures, and missing values**.  
@@ -110,5 +111,5 @@ Binary files containing structured data, which the agent will generate and proce
 
 ### **Why This Project Matters?**
 
-This project demonstrates the potential of **GenAI in automating complex data engineering workflows**, reducing manual effort, and enabling AI-driven **data pipeline orchestration**. It combines **LLMs, synthetic data, and cloud-based data processing**, making it an ideal hands-on project for graduate students exploring **Applied Generative AI** in real-world scenarios. 🚀
+This project demonstrates the potential of **GenAI in automating complex data engineering workflows**, reducing manual effort, and enabling AI-driven **data pipeline orchestration**. 
 
