@@ -56,6 +56,6 @@ Can you track DORA, DX, and other software productivity metrics for the AI agent
 
 ## Proof of Concept
 
-Use the Foundation Model Benchmarking Tool from previous semesters as the test case. It is a real codebase with real debt, written by students who can explain their decisions, with clear functionality to verify nothing breaks.
+Use the [Foundation Model Benchmarking Tool (FMBench)](https://github.com/aws-samples/foundation-model-benchmarking-tool) as the test case. It is a real codebase with real debt, with clear functionality to verify nothing breaks.
 
 Success means: all existing functionality preserved, code quality metrics improved, dependencies updated, and humans feel the AI helped rather than replaced them.
