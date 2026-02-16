@@ -80,19 +80,28 @@ Should this support GCP and Azure? Multi-cloud is common. The patterns are simil
 
 ## Getting Data for Validation
 
-Unlike market data or Spark logs, AWS billing data is inherently private. Here are practical approaches for students:
+Unlike market data or Spark logs, **there is no publicly downloadable AWS billing dataset**. AWS billing data is inherently private. Here are realistic approaches:
 
-**AWS Well-Architected Labs Sample Data** provides the most accessible starting point. The [Cost Optimization Workshop](https://www.wellarchitectedlabs.com/cost-optimization/) includes sample Cost and Usage Report (CUR) files with approximately 300k rows across 3 months. Direct download: [CUR-Sample.zip](https://static.us-east-1.prod.workshops.aws/public/4aabd1d4-0949-451c-9a47-dd6e00fe38fa/static/2_Expenditure_and_usage_awareness/60_Automated_CUR_Updates_and_Ingestion/Code/CUR-Sample.zip). This gives you realistic billing line items to develop parsing and analysis logic.
+**Your Own AWS Account** is the most practical path. Use your AWS Academy or personal free tier account. Deliberately create wasteful resources: spin up an EC2 instance and let it idle, attach an EBS volume then detach it, allocate an Elastic IP and leave it unassociated, create a NAT Gateway in an unused VPC. After a few days, you have real Cost Explorer data and CloudWatch metrics showing the exact patterns your AI needs to detect. Enable Cost and Usage Reports to S3 to get detailed billing data. Stay within free tier or budget $10-20 for realistic test data.
 
-**Your Own AWS Free Tier Account** generates real billing data. Spin up resources deliberately: create an EC2 instance and let it idle, attach an EBS volume and detach it, allocate an Elastic IP and leave it unassociated. After a few days, you have real Cost Explorer data and CloudWatch metrics showing the exact patterns your AI needs to detect. Cost is minimal if you stay within free tier or clean up promptly.
+**Synthetic Data Generation** is essential for testing at scale. The [CUR schema](https://gist.github.com/14kw/a82dc2c572472d492a7a17c36f6f0151) has ~300 columns including:
+- `line_item_usage_account_id`, `line_item_product_code`, `line_item_usage_type`
+- `line_item_usage_amount`, `line_item_unblended_cost` (the key cost fields)
+- `line_item_usage_start_date`, `line_item_usage_end_date`
+- `product_instance_type`, `product_region`, `product_operating_system`
 
-**Synthetic Data Generation** based on the [CUR schema](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-cur-info.html) lets you create test scenarios at scale. Generate billing records for 1000 EC2 instances with varying utilization patterns, some idle, some busy, some with suspicious usage spikes. This is useful for testing edge cases and ensuring your AI handles volume.
+Write a generator that creates realistic billing records: 1000 EC2 instances with varying utilization (some idle at $0.10/hr doing nothing), unattached EBS volumes accruing storage costs, Elastic IPs charged $0.005/hr when unassociated. This lets you test edge cases and volume.
 
-**Open Source FinOps Tools** provide reference implementations. [OptScale](https://github.com/hystax/optscale) (Hystax) is a full FinOps platform supporting AWS, Azure, and GCP with detection rules you can study. [Cloud Custodian](https://cloudcustodian.io/) is a policy engine for cloud governance with hundreds of pre-built rules for identifying waste. These codebases show how experienced practitioners encode cost optimization heuristics.
+**cloud-cost-analyzer** ([ssp-data/cloud-cost-analyzer](https://github.com/ssp-data/cloud-cost-analyzer)) includes a demo mode with sample data. Run `make demo` and it opens at localhost:9009 with pre-loaded dashboards. Good for understanding what a cost analytics UI looks like and what data structures to target.
 
-**AWS CUR Query Library** at [Well-Architected Labs](https://www.wellarchitectedlabs.com/cost-optimization/cur_queries/) provides curated SQL queries for analyzing Cost and Usage Reports. These queries encode domain expertise about what patterns indicate waste, useful both as detection logic and as ground truth for validating your AI's recommendations.
+**Reference Implementations** show how experts encode detection rules:
+- [Cloud Custodian](https://cloudcustodian.io/) has hundreds of policies for identifying waste (idle instances, unattached volumes, etc.)
+- [OptScale](https://github.com/hystax/optscale) is a full FinOps platform with detection heuristics
+- [AWS CUR Query Library](https://www.wellarchitectedlabs.com/cost-optimization/cur_queries/) provides SQL queries encoding domain expertise
 
-The practical path: start with the sample CUR data to build your parser and basic analysis. Generate synthetic data to test at scale. Use your own AWS account to validate against live APIs. Compare your AI's recommendations against Cloud Custodian rules as a baseline.
+**Instance Type Reference Data** from [aws-samples/aws-usage-queries](https://github.com/aws-samples/aws-usage-queries) includes CSV files with instance families, vCPU counts, and pricing tiers useful for rightsizing recommendations.
+
+The practical path: generate synthetic CUR data based on the schema, validate detection logic against Cloud Custodian rules, then test against your real AWS account with deliberately wasteful resources.
 
 ## The Bigger Picture
 
