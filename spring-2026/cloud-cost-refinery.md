@@ -78,6 +78,22 @@ Can the AI predict future costs? Based on current trends, usage patterns, and pl
 
 Should this support GCP and Azure? Multi-cloud is common. The patterns are similar but the APIs are completely different. Is it worth the complexity?
 
+## Getting Data for Validation
+
+Unlike market data or Spark logs, AWS billing data is inherently private. Here are practical approaches for students:
+
+**AWS Well-Architected Labs Sample Data** provides the most accessible starting point. The [Cost Optimization Workshop](https://www.wellarchitectedlabs.com/cost-optimization/) includes sample Cost and Usage Report (CUR) files with approximately 300k rows across 3 months. Direct download: [CUR-Sample.zip](https://static.us-east-1.prod.workshops.aws/public/4aabd1d4-0949-451c-9a47-dd6e00fe38fa/static/2_Expenditure_and_usage_awareness/60_Automated_CUR_Updates_and_Ingestion/Code/CUR-Sample.zip). This gives you realistic billing line items to develop parsing and analysis logic.
+
+**Your Own AWS Free Tier Account** generates real billing data. Spin up resources deliberately: create an EC2 instance and let it idle, attach an EBS volume and detach it, allocate an Elastic IP and leave it unassociated. After a few days, you have real Cost Explorer data and CloudWatch metrics showing the exact patterns your AI needs to detect. Cost is minimal if you stay within free tier or clean up promptly.
+
+**Synthetic Data Generation** based on the [CUR schema](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-cur-info.html) lets you create test scenarios at scale. Generate billing records for 1000 EC2 instances with varying utilization patterns, some idle, some busy, some with suspicious usage spikes. This is useful for testing edge cases and ensuring your AI handles volume.
+
+**Open Source FinOps Tools** provide reference implementations. [OptScale](https://github.com/hystax/optscale) (Hystax) is a full FinOps platform supporting AWS, Azure, and GCP with detection rules you can study. [Cloud Custodian](https://cloudcustodian.io/) is a policy engine for cloud governance with hundreds of pre-built rules for identifying waste. These codebases show how experienced practitioners encode cost optimization heuristics.
+
+**AWS CUR Query Library** at [Well-Architected Labs](https://www.wellarchitectedlabs.com/cost-optimization/cur_queries/) provides curated SQL queries for analyzing Cost and Usage Reports. These queries encode domain expertise about what patterns indicate waste, useful both as detection logic and as ground truth for validating your AI's recommendations.
+
+The practical path: start with the sample CUR data to build your parser and basic analysis. Generate synthetic data to test at scale. Use your own AWS account to validate against live APIs. Compare your AI's recommendations against Cloud Custodian rules as a baseline.
+
 ## The Bigger Picture
 
 Cloud cost management is a growing discipline (FinOps) with its own certifications, conferences, and tools. This project is not about replacing those tools but about exploring how AI agents can make cost optimization more accessible.
