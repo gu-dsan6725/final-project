@@ -60,6 +60,20 @@ How do recommendations interact? Increasing memory might help. Increasing partit
 
 What abstraction level for explanations? Novices need background on what shuffle partitions are. Experts want just the numbers. Can the system adapt to user expertise?
 
+## Validation Datasets and Benchmarks
+
+Several public resources exist for generating Spark workloads and validating the advisor:
+
+**HiBench** ([Intel-bigdata/HiBench](https://github.com/Intel-bigdata/HiBench)) is the most comprehensive option. It generates workloads including Sort, WordCount, TeraSort, PageRank, Kmeans, and SQL queries at configurable scales (tiny to bigdata). The prepare scripts auto-generate input data, so you can create reproducible test cases that exhibit specific performance problems.
+
+**TPC-DS** is the industry standard for decision support benchmarks. It includes 99 SQL queries against a retail sales schema with 7 fact tables and 17 dimension tables. Tools like [Databricks spark-sql-perf](https://github.com/databricks/spark-sql-perf) and [IBM spark-tpc-ds-performance-test](https://github.com/IBM/spark-tpc-ds-performance-test) make it easy to generate data at various scale factors (1GB to 1TB+) and run the queries. TPC-DS queries naturally exhibit skew, complex joins, and varying resource demands, making them good for testing the advisor.
+
+**Existing Analysis Tools** provide reference implementations and test cases. [Dr. Elephant](https://github.com/linkedin/dr-elephant) (LinkedIn) and [Sparklens](https://github.com/qubole/sparklens) (Qubole) are open-source Spark performance analyzers. While no longer actively maintained, their codebases include test fixtures with sample event logs and expected diagnoses. These can serve as ground truth for validating your AI's recommendations.
+
+**Self-Generated Pathological Workloads** are essential. Write Spark jobs that deliberately exhibit each problem type: a join on a highly skewed key (one value appears in 90% of rows), a job that should use broadcast join but does not (small table joined to large), a job with too few partitions causing memory pressure. Run these, capture the event logs, and use them as regression tests. You know what the problem is, so you can verify the AI finds it.
+
+**AWS EMR Best Practices** ([documentation](https://aws.github.io/aws-emr-best-practices/docs/benchmarks/Analyzing/retrieve_event_logs/)) provides guidance on retrieving and analyzing Spark event logs from EMR clusters, useful if you want to test against real cloud workloads.
+
 ## Broader Value
 
 Spark optimization is a domain where expert knowledge exists but is hard to transfer. There are great books and blog posts, but applying that knowledge to specific situations requires judgment built through experience.
