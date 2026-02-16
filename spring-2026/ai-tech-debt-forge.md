@@ -52,6 +52,8 @@ How much external context should the AI gather? Git history, PR discussions, Jir
 
 Can the persona agents learn from feedback? If human security engineers consistently reject certain recommendations, can the Security persona adapt?
 
+Can you track DORA, DX, and other software productivity metrics for the AI agent? DORA metrics (deployment frequency, lead time, change failure rate, time to restore) measure delivery performance. DX metrics capture developer experience and cognitive load. If the forge modernizes a codebase, do these metrics improve in subsequent sprints? Can you attribute improvements to specific AI interventions versus other factors? This would provide empirical grounding for claims about AI-assisted modernization.
+
 ## Proof of Concept
 
 Use the Foundation Model Benchmarking Tool from previous semesters as the test case. It is a real codebase with real debt, written by students who can explain their decisions, with clear functionality to verify nothing breaks.
