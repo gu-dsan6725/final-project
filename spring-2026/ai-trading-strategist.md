@@ -52,6 +52,20 @@ How do you handle explore-exploit? Deploy your best strategy (exploit) or keep e
 
 Can the AI learn from its mistakes? When a strategy fails, can it perform post-mortem analysis that prevents similar failures?
 
+## Market Data Sources
+
+**Yahoo Finance** ([yfinance](https://github.com/ranaroussi/yfinance)) provides free historical data going back decades for most US equities and indices. S&P 500 data is available from 1927, individual stocks typically from their IPO date. Daily OHLCV (open, high, low, close, volume) data is reliable; intraday data is more limited. Be aware of survivorship bias: Yahoo only has data for companies that still exist or were acquired, not those that went bankrupt.
+
+**Alpha Vantage** offers a free tier with historical and real-time data. More reliable than Yahoo Finance for some use cases, but rate-limited on the free plan. Good for validating Yahoo Finance data quality.
+
+**FRED (Federal Reserve Economic Data)** provides macroeconomic indicators: interest rates, unemployment, GDP, inflation. Useful for regime detection and macro-aware strategies. Available via the [fredapi](https://github.com/mortada/fredapi) Python library.
+
+**Alpaca Markets** provides both historical data and paper trading execution through a single API. Their free tier includes 5+ years of daily data and real-time quotes during market hours. This simplifies the architecture since you can get data and execute trades through one integration.
+
+**Kaggle Datasets** host several curated financial datasets for research, including historical S&P 500 constituents (addresses survivorship bias), earnings announcements, and sentiment data. Useful for specific research questions.
+
+For backtesting, 10-20 years of data is typically sufficient to capture multiple market regimes (bull markets, bear markets, high volatility periods like 2008 and 2020). Going back further (50+ years) introduces questions about whether historical patterns remain relevant given structural changes in markets.
+
 ## Boundaries
 
 Paper trading only. Mandatory, not optional. Real money creates inappropriate pressures for a learning environment.
