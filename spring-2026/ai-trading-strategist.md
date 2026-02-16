@@ -1,143 +1,57 @@
 # AI Trading Strategist
 
-## Overview
+## Why This Matters
 
-An AI-powered trading bot that uses paper trading APIs (Alpaca) to develop, backtest, and execute trading strategies. The AI has access to market data via Yahoo Finance and other APIs, can analyze historical performance, and compare results against benchmarks like S&P 500.
+Financial markets are one of the most challenging domains for AI because the system fights back. Unlike chess or protein folding where the rules are fixed, markets are full of intelligent agents who adapt to any exploitable pattern. A strategy that works today may fail tomorrow precisely because it worked today. Economists call this the Adaptive Market Hypothesis.
 
-## Problem Statement
+Building a trading system forces you to grapple with uncertainty, feedback loops, and the difference between correlation and causation. Every mistake shows up in the P&L. There is no hiding behind vague success metrics when your Sharpe ratio is negative.
 
-- Developing trading strategies requires extensive market knowledge
-- Backtesting is time-consuming and requires significant infrastructure
-- Retail traders lack access to sophisticated analysis tools
-- Emotional decision-making often undermines trading performance
+This project is explicitly educational. Paper trading only. Anyone who claims they can build a consistently profitable system in a semester is either lying or about to learn an expensive lesson. The value is in the process: building systems that reason about uncertain, adversarial environments.
 
-## Proposed Solution
+## The Product Vision
 
-### Core Features
+The AI Trading Strategist connects to market data via Yahoo Finance and similar APIs, analyzes historical patterns, generates trading hypotheses, and backtests strategies across configurable time horizons (12, 24, 36, 72, 144 months). All trades execute through Alpaca's paper trading API, so no real money is at risk.
 
-1. **Market Data Integration**
-   - Yahoo Finance API for historical and real-time data
-   - News sentiment analysis
-   - Technical indicator calculations
-   - Fundamental data analysis
+What distinguishes this from a simple backtesting framework is the AI's role in hypothesis generation. Instead of the human specifying "test a momentum strategy with these parameters," the AI proposes strategies based on its analysis. The human shifts from strategy designer to strategy evaluator and risk manager.
 
-2. **Strategy Development**
-   - AI analyzes market patterns
-   - Generates trading hypotheses
-   - Creates rule-based strategies
-   - Optimizes parameters through backtesting
+The system compares performance against standard benchmarks: S&P 500, NASDAQ 100, 60/40 portfolio, and risk-free rate. Risk-adjusted metrics (Sharpe ratio, max drawdown, win rate) matter more than raw returns.
 
-3. **Backtesting Engine**
-   - Test strategies over configurable periods (12, 24, 36, 72, 144 months)
-   - Compare against benchmarks (S&P 500, NASDAQ, sector ETFs)
-   - Calculate key metrics (Sharpe ratio, max drawdown, win rate)
-   - Generate detailed performance reports
+## Agentic Architecture
 
-4. **Paper Trading Execution**
-   - Alpaca API integration (no real money)
-   - Real-time trade execution
-   - Portfolio tracking
-   - Risk management rules
+**Data Aggregation Agent** collects, cleans, and normalizes market data from multiple sources. This is harder than it sounds: different providers handle stock splits, dividends, and corporate actions differently. Yahoo Finance has known data quality issues that can corrupt backtests if not caught.
 
-5. **Performance Analytics**
-   - Visual dashboards
-   - Attribution analysis
-   - Risk-adjusted returns
-   - Strategy comparison
+**Strategy Generation Agent** analyzes processed data to identify trading opportunities. This is where LLMs get interesting. Traditional quant approaches use predefined factors (momentum, value, mean reversion). An LLM can potentially identify subtler patterns by reasoning in natural language, like noticing a sector tends to outperform after certain Fed announcements.
 
-## Technical Architecture
+**Backtesting Agent** evaluates strategies against historical data with rigorous safeguards against lookahead bias (using information not available at the time) and survivorship bias (only including companies that still exist). Proper backtesting is an art that students consistently underestimate.
 
-### Tools and Integrations
+**Risk Management Agent** enforces constraints on position sizes, sector concentrations, and drawdown limits. This agent has veto power: no matter how attractive an opportunity looks, if it violates risk limits, it does not execute. This separation mirrors best practices at real trading firms.
 
-- **Trading APIs**
-  - Alpaca for paper trading
-  - Yahoo Finance for market data
-  - Alpha Vantage (alternative data source)
+**Paper Trading Agent** interfaces with Alpaca to execute simulated trades, handling order types, partial fills, and API failures gracefully.
 
-- **MCP Servers / Skills**
-  - Yahoo Finance MCP server
-  - Financial news aggregator
-  - Technical analysis skill
+## Implementation Hints
 
-- **Analysis Tools**
-  - pandas/polars for data processing
-  - Plotly/Dash for visualization
-  - Statistical analysis libraries
+Regime change is the killer. A momentum strategy that worked in 2017-2019 might have been catastrophic in March 2020. Build an ensemble of strategies with different characteristics and dynamically adjust allocations based on what is currently working.
 
-### Data Flow
+Transaction costs matter. A strategy that looks profitable before costs may be unprofitable after accounting for commissions, bid-ask spreads, and market impact. Model these realistically.
 
-```
-Market Data Sources
-        |
-        v
-+------------------+
-| Data Aggregator  | --> Collects, cleans, normalizes
-+------------------+
-        |
-        v
-+------------------+
-| AI Strategist    | --> Develops trading strategies
-+------------------+
-        |
-        v
-+------------------+
-| Backtester       | --> Tests against historical data
-+------------------+
-        |
-        v
-+------------------+
-| Paper Trader     | --> Executes via Alpaca
-+------------------+
-        |
-        v
-+------------------+
-| Analytics        | --> Reports and dashboards
-+------------------+
-```
+Use walk-forward analysis. Train on months 1-12, test on month 13. Retrain on months 1-13, test on month 14. This simulates real-time performance including periodic retraining effects.
 
-## Backtesting Periods
+Out-of-sample testing is mandatory. If you tune parameters on the same data you test on, you are fooling yourself. The strategy will look great historically and fail immediately in production.
 
-| Period | Description | Use Case |
-|--------|-------------|----------|
-| 12 months | Short-term | Recent market conditions |
-| 24 months | Medium-term | Include one market cycle |
-| 36 months | Standard | Good balance of data |
-| 72 months | Long-term | Multiple market cycles |
-| 144 months | Extended | Include 2008 crisis, COVID |
+Start simple. A basic momentum or mean-reversion strategy that you understand deeply beats a complex ML model that you cannot explain. Add complexity only when you have exhausted simple approaches.
 
-## Benchmark Comparisons
+## Interesting Questions
 
-- S&P 500 (SPY)
-- NASDAQ 100 (QQQ)
-- Total Market (VTI)
-- 60/40 Portfolio
-- Risk-free rate (Treasury)
+How does LLM-based hypothesis generation compare to traditional factor models? Are there patterns that language models catch that quant screens miss, or vice versa?
 
-## Deliverables
+What is the right response to drawdown? Fixed rules (stop after 10% loss) are common but crude. Can an AI distinguish between bad luck within an intact strategy versus evidence that the strategy is broken?
 
-1. Market data ingestion pipeline
-2. AI strategy generation engine
-3. Backtesting framework with reporting
-4. Alpaca paper trading integration
-5. Performance dashboard
+How do you handle explore-exploit? Deploy your best strategy (exploit) or keep experimenting (explore)? This is a multi-armed bandit problem where the arms' payoffs are non-stationary.
 
-## Success Metrics
+Can the AI learn from its mistakes? When a strategy fails, can it perform post-mortem analysis that prevents similar failures?
 
-- Risk-adjusted returns vs benchmarks
-- Strategy consistency over time
-- Drawdown management
-- Win rate and profit factor
+## Boundaries
 
-## Risk Disclaimers
+Paper trading only. Mandatory, not optional. Real money creates inappropriate pressures for a learning environment.
 
-- Paper trading only - no real money
-- Past performance doesn't guarantee future results
-- Educational purposes only
-- Not financial advice
-
-## Open Questions
-
-- What trading styles to focus on (momentum, value, mean reversion)?
-- How often should the AI re-optimize strategies?
-- What risk limits should be enforced?
-- How to handle market regime changes?
+This is not financial advice. Past performance does not guarantee future results. Even sophisticated AI systems at well-funded firms frequently fail. Renaissance Technologies is the exception; most quant funds have mediocre records. Humility is appropriate.
