@@ -1,5 +1,7 @@
 # AI Trading Strategist
 
+**IMPORTANT: This is a paper trading project using Alpaca's simulated trading API. No real money is involved. Do not connect real brokerage accounts or use real funds. This is an educational exercise in building AI systems, not a path to trading profits.**
+
 ## Why This Matters
 
 Financial markets are one of the most challenging domains for AI because the system fights back. Unlike chess or protein folding where the rules are fixed, markets are full of intelligent agents who adapt to any exploitable pattern. A strategy that works today may fail tomorrow precisely because it worked today. Economists call this the Adaptive Market Hypothesis.
