@@ -1,46 +1,64 @@
-# DSAN 6725 final project
+# DSAN 6725 Final Project
 
-This repository contains information about deliverables, project ideas and all things related to the final project.
-
+This repository contains information about deliverables, project ideas, and all things related to the final project.
 
 ## Overview
 
-DSAN 6725 is an applied AI course, while the focus is on building useful things with AI but more foundational work on benchmarking, fine-tuning, optimization strategies for inference, exploration of newer open-source frameworks for building applications and so on and so forth is highly encouraged.
+DSAN 6725 is an applied AI course. The focus is on building production-quality AI agent systems that solve real problems. All projects must implement AI agents unless an alternative approach is explicitly approved by the professor.
 
-The is repo provides some project ideas but you are not limited to just these, you can explore other ideas but it would be incumbent upon you (your team) to discuss these ideas and get approval before proceeding. The ideas suggested here are practically useful, of course there are hundreds of others ideas which are probably even more useful, so explore more by all means but we do want to lock down on a project idea which has a reasonable chance of success in 6-weeks give or take so please keep that in mind.
+This repo provides project ideas but you are not limited to these. You can explore other ideas but it is incumbent upon you (your team) to discuss these ideas and get approval before proceeding. The ideas suggested here are practically useful and have been selected because they have a reasonable chance of success in a 6-week timeframe.
 
 This repo is organized into the following parts:
 
-- [Project ideas](#project-ideas)
+- [Project Ideas](#project-ideas)
 - [Deliverables](#deliverables)
 - [FAQ](#faq)
 - [Resources](#resources)
 
 ## Project Ideas
 
-**NOTE**: These project ideas have well-defined problem statements, but the implementation details are flexible and open to creative solutions. Use the description provided for each of these projects as springboards for your own ways to solve these problems.
+These project ideas have well-defined problem statements, but the implementation details are flexible and open to creative solutions. Use the descriptions provided as springboards for your own approaches to solving these problems.
 
-- [Gen AI AI-Powered Code Refactoring & Dependency Updater](./AI_code_refactoring.md)
-- [Gen AI agent for data engineering](./Data_engineering_agent.md)
-- [Question-Answering Slackbot for a DSAN Slack Channel](./QA_slackbot.md)
-- [Fine-Tune an Embeddings Model and Show Retrieval Accuracy Improvements](./Embedding_Model_FineTuning.md)
-- [Study how different models perform on Agent evaluation benchmarks](./benchmarks.md)
+### Spring 2026 Projects
+
+- [AI Tech Debt Forge](./spring-2026/ai-tech-debt-forge.md) - Multi-agent system for codebase modernization with persona-based validation
+- [AI Trading Strategist](./spring-2026/ai-trading-strategist.md) - Paper trading system using Alpaca API for strategy development and backtesting
+- [AI Spark Optimizer](./spring-2026/ai-spark-optimizer.md) - Intelligent Spark job analysis with interpretable performance recommendations
+- [Cloud Cost Refinery](./spring-2026/cloud-cost-refinery.md) - AWS cost optimization agent that generates executable cleanup commands
+- [AI Schema Harmonizer](./spring-2026/ai-schema-harmonizer.md) - Normalize schemas across SaaS tools with observability data focus
+- [AI Data Prep Pipeline](./spring-2026/ai-data-prep-pipeline.md) - Universal document processing for RAG and vector search
+
+### Archived Projects
+
+Previous semester project ideas are available in [spring-2025/](./spring-2025/).
 
 ## Deliverables
 
-All deliverables are described [here](./deliverables.md).
+All deliverables are described in [deliverables.md](./deliverables.md).
+
+Summary of what you will produce:
+- Project paper (8-12 pages, conference format)
+- Code repository (production quality)
+- Working demo
+- Presentation slides
+- Conference-style poster
 
 ## FAQ
 
-`Question`: Can I do this project alone as a single person team? Can there be more than 4 people in a team?<br>
-`Answer`: No and no.
+**Can I do this project alone or with more than 4 people?**
+No. Teams must have 2-4 members.
 
-`Question`: Can I use OpenAI for my project?<br>
-`Answer`: You have a paid plan for their API, go for it. In this class though we won't be covering it.
+**Can I use OpenAI for my project?**
+If you have a paid API plan, yes. However, we focus on Amazon Bedrock and open-source alternatives in this class.
 
-`Question`: Can I use generative AI to help me with my project?<br>
-`Answer`: If you want to use it in a non-substantial way then yes, see [this section](https://gu-dsan.github.io/6725-spring-2025/syllabus.html#use-of-generative-ai-tools) from the syllabus. As I have always stated in the class that if you use it as a productivity assistant then yes, if you use it do your work then _A) you learn nothing and B) this is considered plagiarism_.
+**Can I use generative AI to help me with my project?**
+If you use it as a productivity assistant, yes. If you use it to do your work, that is considered plagiarism and you learn nothing. See the syllabus for details.
+
+**What if I want to propose a different project idea?**
+Discuss with the professor before Milestone 1. Your proposal should have a clear problem statement, feasible scope for 6 weeks, and an AI agent architecture.
 
 ## Resources
 
-Our very own [`bookmarks`](https://github.com/gu-dsan6725/bookmarks/tree/main) repo.
+- Course [bookmarks](https://github.com/gu-dsan6725/bookmarks/tree/main) repository
+- [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/)
+- [LangChain](https://python.langchain.com/), [LlamaIndex](https://docs.llamaindex.ai/), [Claude Agent SDK](https://github.com/anthropics/anthropic-cookbook)
