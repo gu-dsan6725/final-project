@@ -1,110 +1,212 @@
 # End-of-Semester Project Deliverables
 
 ## Overview
-The end-of-semester project is an opportunity for students to demonstrate their understanding of generative AI by building a fully functional application. The project should follow a structured approach, similar to an academic research paper, while also showcasing implementation details, findings, and a working demo. 
 
-Each project must include a report (see [`submissions requirements`](#submission-requirements)) structured with the following sections:
+The end-of-semester project is an opportunity for students to demonstrate their understanding of applied AI by building a fully functional AI agent system. This is not a toy demo or proof-of-concept. You are building production-quality software that solves a real problem.
+
+All projects must implement AI agents unless an alternative approach is explicitly approved by the professor. The deliverables mirror what you would produce in industry or academia: a working system, a conference-quality paper, a poster presentation, and a live demonstration.
+
+We encourage you to treat this work as preparation for an upcoming AI conference. Past student projects have been presented at industry meetups, internal company showcases, and academic workshops. Aim high.
 
 ---
 
-## 1. Title and Abstract
-- A concise title that reflects the project’s focus.
-- A 250–300 word abstract summarizing the problem statement, approach, key techniques used, and main findings.
-- This submission constitutes Milestone 1 and must be approved by the professor. Feedback must be incorporated before proceeding.
+## Project Deliverables
 
-## 2. Introduction
-- Overview of the problem being addressed.
-- Motivation for choosing this problem and its relevance in the field of Generative AI.
-- Research questions or hypotheses (if applicable).
+Your final submission must include all of the following:
 
-## 3. Data Source and Preparation
-- Description of the data sources used (public datasets, proprietary data, scraped data, etc.).
-- Data preprocessing steps, including cleaning, augmentation, and transformations.
-- Justification for data selection and preprocessing choices.
-- This is part of Milestone 2.
+### 1. Project Paper
 
-## 4. Retrieval-Augmented Generation (RAG) (Mandatory, unless approved by professor)
-- Explanation of how RAG was implemented.
-- Details of the embedding models used (e.g., OpenAI, Cohere, BGE, custom fine-tuned models).
-- Discussion on retrieval techniques (e.g., vector search, hybrid search, graph-based retrieval).
-- Large Language Models (LLMs) used for answer generation and their reasoning.
-- How query-to-context matching was optimized.
-- This is part of Milestone 2.
+A conference-style paper (8-12 pages, excluding references) structured as follows:
 
-## 5. Agents (Mandatory, unless approved by professor)
-- Architecture of AI agents used.
-- Frameworks used (e.g., LangChain, LlamaIndex, Haystack).
-- Types of agents (e.g., tool-using agents, autonomous agents, planning agents).
-- How agents interact with external tools and APIs.
-- This is part of Milestone 3.
+**Title and Abstract**
+- A concise title that reflects the project's focus
+- A 250-300 word abstract summarizing the problem, approach, key techniques, and findings
 
-## 6. Models and Technologies Used
-- Discussion on the models utilized (LLMs, embedding models, classifiers, etc.).
-- Comparison of different models and justification for final choices.
-- Any inference optimizations applied (e.g., quantization, distillation, multi-adapter swapping).
+**Introduction**
+- The problem being addressed and why it matters
+- Motivation and relevance to applied AI
+- Research questions or hypotheses driving the work
 
-## 7. Fine-Tuning (if applicable)
-- Whether fine-tuning was performed.
-- If yes, details of dataset preparation, model training, evaluation, and computational requirements.
-- If no, justification for choosing not to fine-tune.
+**Related Work**
+- Survey of existing solutions, tools, and research
+- How your approach differs or improves upon prior work
 
-## 8. Tools and Frameworks
-- Programming languages and frameworks used (e.g., Python, PyTorch, TensorFlow, Hugging Face, OpenAI API).
-- Cloud platforms and any relevant services (e.g., Amazon Bedrock, Amazon SageMaker, Vector DBs like FAISS), open-source (e.g. LangChain).
-- Version control, CI/CD, or deployment considerations.
+**System Architecture**
+- High-level architecture of your AI agent system
+- Agent types and their responsibilities
+- How agents coordinate, communicate, and share state
+- External tools, APIs, and services integrated
 
-## 9. Evaluation of Effectiveness
-- Metrics used for evaluation (e.g., BLEU, ROUGE, MRR, Precision/Recall for retrieval, perplexity for LLMs).
-- Benchmarking comparisons against baselines.
-- User studies, feedback, or qualitative assessments.
-- This is part of Milestone 3.
+**Data and Evaluation**
+- Data sources used for development and validation
+- Preprocessing, cleaning, and preparation steps
+- Evaluation metrics and benchmarks
+- Quantitative results with appropriate statistical rigor
 
-## 10. Responsible AI Considerations
-- Bias and fairness checks conducted.
-- Any measures taken to reduce hallucinations and ensure factual consistency.
-- Privacy considerations (e.g., PII removal, data anonymization).
-- Model safety measures and ethical implications.
+**Models and Technologies**
+- LLMs, embedding models, and other AI components used
+- Frameworks (LangChain, LlamaIndex, Claude Agent SDK, etc.)
+- Infrastructure and deployment considerations
+- Justification for technical choices
 
-## 11. Findings and Insights
-- Key takeaways from the project.
-- Unexpected challenges and how they were addressed.
-- Performance trade-offs and scalability considerations.
+**Responsible AI Considerations**
+- Bias and fairness analysis
+- Measures to reduce hallucinations and ensure factual accuracy
+- Privacy considerations (PII handling, data anonymization)
+- Safety measures and ethical implications
 
-## 12. Demo
-- A 5-minute working demonstration of the project (video link or live demo link).
-- Explanation of key features in the demo.
-- User interface and interaction details.
+**Findings and Discussion**
+- Key insights from building and evaluating the system
+- Unexpected challenges and how they were addressed
+- Performance trade-offs and scalability considerations
 
-## 13. Conclusion and Future Work
-- Summary of the project and its impact.
-- Limitations of the current implementation.
-- Potential future improvements and extensions.
+**Conclusion and Future Work**
+- Summary of contributions
+- Limitations of the current implementation
+- Concrete directions for future improvement
 
-## 14. References
-- List of academic papers, blog posts, documentation, and other resources referenced.
+**References**
+- Academic papers, documentation, and resources cited
 
-## 15. Appendix (if needed)
-- Additional code snippets, extended data analysis, or supplementary material.
+### 2. Code Repository
+
+A well-organized GitHub repository containing:
+- All source code with clear structure
+- README with setup instructions and usage examples
+- Requirements/dependencies properly specified
+- Configuration files and environment setup
+- Tests demonstrating core functionality
+- Documentation for key components
+
+Code quality matters. This repository represents your engineering capabilities to future employers and collaborators.
+
+### 3. Demo
+
+A working demonstration of your system:
+- Live demo preferred; video acceptable if live demo is impractical
+- 5-7 minutes showcasing core functionality
+- Clear explanation of what the system does and how it works
+- Demonstration of agent behavior and decision-making
+
+### 4. Presentation Slides
+
+A slide deck for your final presentation:
+- 15-20 slides covering problem, approach, architecture, results, and demo
+- Clear visualizations of system architecture and agent interactions
+- Key metrics and evaluation results
+- Professional quality suitable for a conference presentation
+
+### 5. Poster
+
+A conference-style poster (standard 48" x 36" format):
+- Visual summary of your project
+- Problem statement, approach, architecture diagram, key results
+- QR code linking to your demo or repository
+- Designed for a 3-minute verbal walkthrough
 
 ---
 
 ## Milestones
-1. **Milestone 1**: Title and Abstract Submission (Must be approved by professor, feedback must be incorporated before proceeding). **Due date: Friday, 28th February, 2025**.
-2. **Milestone 2**: Data Preparation and RAG Implementation. **Due date: Tuesday, 18th March, 2025**.
-3. **Milestone 3**: Agents and Evaluation. **Due date: Tuesday, 11th April, 2025**.
-4. **Final Milestone**: Project Submission. **Due date: Friday, 25th April, 2025**.
-4. **Final Presentation**: Project Presentation. **Due date: Tuesday, 29th April, 2025**.
 
-After projects have been submitted, there will be an ungraded project presentation. This will typically require a PowerPoint presentation and a live demo. Each group will have **15 minutes** to present their work.
+### Milestone 1: Title and Abstract
+**Due: Friday, February 27, 2026**
+
+Submit your project title and abstract for professor approval. This establishes the scope and direction of your project. Feedback must be incorporated before proceeding.
+
+Deliverables:
+- Project title
+- 250-300 word abstract
+- Initial list of data sources you plan to use
+- Proposed agent architecture (high-level)
+
+### Milestone 2: First Check-in
+**Due: Tuesday, March 17, 2026**
+
+Demonstrate progress on data preparation and initial agent implementation.
+
+Deliverables:
+- Data pipeline working with sample data
+- At least one agent functional with basic capabilities
+- Updated architecture based on early learnings
+- Identified risks and mitigation plans
+
+### Milestone 3: Second Check-in
+**Due: Tuesday, April 7, 2026**
+
+Demonstrate a working end-to-end system with evaluation.
+
+Deliverables:
+- All agents implemented and integrated
+- Evaluation framework with preliminary results
+- Draft of system architecture section of paper
+- Working demo (even if rough)
+
+### Final Submission
+**Due: Friday, April 24, 2026**
+
+Complete project submission including all deliverables.
+
+Deliverables:
+- Project paper (PDF)
+- Code repository (cleaned and documented)
+- Demo (live link or video)
+- Presentation slides
+- Poster (PDF)
+
+### Final Presentation
+**Due: Tuesday, April 28, 2026**
+
+Present your project to the class and invited guests.
+
+- 15 minutes per group (10 minutes presentation + 5 minutes Q&A)
+- Live demo strongly encouraged
+- All team members must participate
+- Poster session following presentations
+
+---
+
+## Evaluation Criteria
+
+| Criterion | Weight | Description |
+|-----------|--------|-------------|
+| Technical Depth | 35% | Sophistication of agent architecture, appropriate use of AI techniques, engineering quality |
+| Evaluation Rigor | 25% | Quality of metrics, benchmarks, and analysis; statistical validity of results |
+| Innovation | 20% | Novel approaches, creative problem-solving, contributions beyond existing solutions |
+| Communication | 15% | Paper clarity, presentation quality, documentation, poster design |
+| Demo Quality | 5% | Working system, smooth demonstration, handling of edge cases |
+
+---
 
 ## Submission Requirements
-- **Format:** Markdown/PDF report + GitHub repository (this repository) with code. Use [`Quarto`](https://quarto.org/)  or [`MkDocs`](https://www.mkdocs.org/) to create your report and host it on GitHub pages for this repo. It is up to you if you want to host this is a single page website or in a different format, whatever best helps communicate the deliverables listed above. **This is a graduate class therefore attention to detail is a must, for example cross references in report to sections of code, tables, visualizations and screenshots to communicate key results, coherent and concise writing free of grammatical errors are all baseline level requirements**.
-- **Due Date:** Tuesday, April 29th, 2025
-- **Evaluation Criteria:**
-  - Technical depth and correctness (40%)
-  - Novelty and innovation (30%)
-  - Clarity of explanation and documentation (20%)
-  - Quality of the working demo (10%)
 
+**Format:**
+- Paper: PDF, conference format (we recommend using LaTeX with a standard conference template or Quarto)
+- Code: GitHub repository with this course's organization
+- Slides: PDF or Google Slides link
+- Poster: PDF (48" x 36")
+- Demo: Live URL or video link
 
+**Hosting:**
+Use Quarto, MkDocs, or similar to create a project website hosted on GitHub Pages. This serves as the public face of your work and should include links to all deliverables.
 
+**Quality Expectations:**
+This is a graduate class. Attention to detail is mandatory:
+- Cross-references between paper sections and code
+- Tables, figures, and screenshots to communicate results
+- Coherent, concise writing free of grammatical errors
+- Professional presentation materials
+- Clean, well-documented code
+
+---
+
+## Conference Submission
+
+We strongly encourage you to submit your work to an appropriate venue after the semester ends. Your paper and poster are designed to be conference-ready with minor revisions.
+
+Potential venues to consider:
+- Industry conferences and meetups (local AI/ML groups, company tech talks)
+- Workshop tracks at major conferences (NeurIPS, ICML, ACL workshops)
+- Applied AI conferences (AAAI, IAAI)
+- Domain-specific venues relevant to your project topic
+
+The professor and TAs can provide guidance on appropriate venues and submission timelines. Several past student projects have been successfully presented at external venues. Aim to be among them.
