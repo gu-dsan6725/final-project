@@ -204,27 +204,7 @@ This is a graduate class. Attention to detail is mandatory:
 We strongly encourage you to submit your work to an appropriate venue after the semester ends. Your paper and poster are designed to be conference-ready with minor revisions.
 
 Potential venues to consider:
-
-**Applied AI Conferences (practitioner-focused, high acceptance rates)**
 - [ODSC (Open Data Science Conference)](https://odsc.com/) - East (Boston) and West (San Francisco), accepts talks and posters on applied work
-- [Ai4](https://ai4.io/) - Industry-focused conference in Las Vegas, welcomes practical implementations
-- [Data + AI Summit](https://www.databricks.com/dataaisummit) - Databricks conference, free virtual attendance, accepts community talks
-- [NVIDIA GTC](https://www.nvidia.com/gtc/) - Free virtual access, poster sessions for applied AI work
+- [2026 Applied Machine Learning Conference](https://appliedml.us/2026/) - Focused on practical ML implementations
 
-**Local and Regional Venues (most accessible)**
-- University research symposiums and graduate student showcases
-- Local AI/ML meetups (Data Science DC, PyData chapters, AWS/GCP user groups)
-- Company tech talks and internal AI showcases
-- Regional ACM chapter student research competitions
-
-**Student-Focused Tracks**
-- [AAAI Undergraduate Consortium](https://aaai.org/conference/aaai/aaai-26/uc-call/) - Specifically for student research
-- Graduate student symposiums at regional conferences
-- University-hosted AI research days
-
-**Domain-Specific Venues**
-- FinTech conferences for trading/finance projects
-- DevOps/SRE conferences for infrastructure projects
-- Healthcare AI symposiums for medical applications
-
-Start with local meetups and university symposiums to practice presenting. These build confidence and often lead to connections for larger venues. The professor and TAs can provide guidance on appropriate venues and submission timelines.
+The professor and TAs can provide guidance on appropriate venues and submission timelines.
