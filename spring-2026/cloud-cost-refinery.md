@@ -84,6 +84,8 @@ Unlike market data or Spark logs, **there is no publicly downloadable AWS billin
 
 **Your Own AWS Account** is the most practical path. Use your AWS Academy or personal free tier account. Deliberately create wasteful resources: spin up an EC2 instance and let it idle, attach an EBS volume then detach it, allocate an Elastic IP and leave it unassociated, create a NAT Gateway in an unused VPC. After a few days, you have real Cost Explorer data and CloudWatch metrics showing the exact patterns your AI needs to detect. Enable Cost and Usage Reports to S3 to get detailed billing data. Stay within free tier or budget $10-20 for realistic test data.
 
+**Sample CUR Data** is provided in [cloud-cost-data-sample.csv](cloud-cost-data-sample.csv) as a reference. This shows the actual structure of AWS Cost and Usage Report data with anonymized account IDs. Use this as a template to generate larger synthetic datasets.
+
 **Synthetic Data Generation** is essential for testing at scale. The [CUR schema](https://gist.github.com/14kw/a82dc2c572472d492a7a17c36f6f0151) has ~300 columns including:
 - `line_item_usage_account_id`, `line_item_product_code`, `line_item_usage_type`
 - `line_item_usage_amount`, `line_item_unblended_cost` (the key cost fields)
