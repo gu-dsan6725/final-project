@@ -57,5 +57,4 @@ Discuss with the professor before Milestone 1. Your proposal should have a clear
 ## Resources
 
 - Course [bookmarks](https://github.com/gu-dsan6725/bookmarks/tree/main) repository
-- [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/)
 - [LangChain](https://python.langchain.com/), [LlamaIndex](https://docs.llamaindex.ai/), [Claude Agent SDK](https://github.com/anthropics/anthropic-cookbook)
