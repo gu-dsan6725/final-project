@@ -70,6 +70,24 @@ Test with real messy data. Academic datasets are too clean. Get actual exports f
 
 **Human Evaluation** is ultimately necessary. Have data engineers review proposed mappings and rate them as correct, incorrect, or ambiguous. This catches semantic errors that automated metrics miss.
 
+## Datasets for Validation
+
+Several established benchmarks exist for schema matching evaluation:
+
+**Valentine** ([delftdata/valentine](https://github.com/delftdata/valentine)) is the most directly applicable benchmark. It provides an extensible experiment suite for schema matching methods with fabricated dataset pairs containing ground truth mappings. The [valentine-data-fabricator](https://github.com/delftdata/valentine-data-fabricator) generates dataset pairs classified into four categories: unionable, view-unionable, joinable, and semantically-joinable. Download the datasets-archive and use the ground truth to measure precision/recall of your AI's mappings.
+
+**OAEI (Ontology Alignment Evaluation Initiative)** at [oaei.ontologymatching.org](https://oaei.ontologymatching.org/) has run for 20+ years evaluating ontology matching systems. Their datasets include the "anatomy" track (matching Adult Mouse Anatomy to NCI Thesaurus) and conference domain ontologies. While more academic than practical, OAEI provides rigorous benchmarks with established baselines.
+
+**OpenTelemetry Demo Dataset** ([openobserve/opentelemetry-demo-dataset](https://github.com/openobserve/opentelemetry-demo-dataset)) generates production-like observability data from a 16-service e-commerce application. It produces logs from 20 sources, metrics (host/container/application/database), and traces with 7 distributed flows. Run with Docker Compose to generate OTLP-format telemetry for testing observability schema mapping.
+
+**Prometheus Benchmark Tools** help generate metrics data:
+- [VictoriaMetrics/prometheus-benchmark](https://github.com/VictoriaMetrics/prometheus-benchmark) generates production-like workload using real node_exporter metrics (~1230 unique metrics per target)
+- [little-angry-clouds/prometheus-data-generator](https://github.com/little-angry-clouds/prometheus-data-generator) lets you define custom metric names, types, labels, and value sequences
+
+**OpenTelemetry Semantic Conventions** at [opentelemetry.io/docs/specs/semconv/](https://opentelemetry.io/docs/specs/semconv/) define the target schema for observability data. Map Prometheus/CloudWatch/Datadog formats to these conventions and measure how well your AI's mappings align with the official specifications.
+
+**Practical approach**: Start with Valentine for general schema matching evaluation. Use the OpenTelemetry demo + Prometheus generators to create multi-format observability data with known semantic equivalences. Evaluate against OpenTelemetry semantic conventions as ground truth.
+
 ## Interesting Questions
 
 How do you handle schema evolution? Real schemas change over time. A mapping that was correct last month may be wrong now. Can the AI detect when schemas have drifted and flag mappings for re-review?
