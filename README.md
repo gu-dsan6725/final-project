@@ -48,8 +48,8 @@ Summary of what you will produce:
 **Can I do this project alone or with more than 4 people?**
 No. Teams must have 2-4 members.
 
-**Can I use OpenAI for my project?**
-If you have a paid API plan, yes. However, we focus on Amazon Bedrock and open-source alternatives in this class.
+**Can I use any model provider (OpenAI, Anthropic, Google, etc.)?**
+Yes. Use whatever works best for your project.
 
 **Can I use generative AI to help me with my project?**
 If you use it as a productivity assistant, yes. If you use it to do your work, that is considered plagiarism and you learn nothing. See the syllabus for details.
