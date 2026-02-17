@@ -51,9 +51,6 @@ No. Teams must have 2-4 members.
 **Can I use any model provider (OpenAI, Anthropic, Google, etc.)?**
 Yes. Use whatever works best for your project.
 
-**Can I use generative AI to help me with my project?**
-If you use it as a productivity assistant, yes. If you use it to do your work, that is considered plagiarism and you learn nothing. See the syllabus for details.
-
 **What if I want to propose a different project idea?**
 Discuss with the professor before Milestone 1. Your proposal should have a clear problem statement, feasible scope for 6 weeks, and an AI agent architecture.
 
